@@ -1,0 +1,179 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "title": "Total Ecological Footprint by Human Development Index",
+  "data": {
+    "url": "https://raw.githubusercontent.com/charlottesquier/FIT3179/main/Map/EcoFootprint/data/countries.csv"
+  },
+  "params": [
+    {
+      "name": "Population_Above",
+      "value": 0,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 2000,
+        "step": 10,
+        "name": "Minimum Population: "
+      }
+    },
+    {
+      "name": "Continent_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "Middle East/Central Asia",
+          "Northern/Eastern Europe",
+          "European Union",
+          "Africa",
+          "Asia-Pacific",
+          "Latin America",
+          "North America"
+        ],
+        "labels": [
+          "Show All",
+          "Middle East/Central Asia",
+          "Northern/Eastern Europe",
+          "European Union",
+          "Africa",
+          "Asia-Pacific",
+          "Latin America",
+          "North America"
+        ],
+        "name": "Continent Selection: "
+      }
+    }
+  ],
+  "transform": [
+    {"filter": "datum.HDI > 0"},
+    {
+      "filter": "Continent_selection == null || datum.Continent == Continent_selection"
+    },
+    {}
+  ],
+  "encoding": {
+    "x": {
+      "field": "HDI",
+      "type": "quantitative",
+      "title": "Human Development Index",
+      "axis": {"tickCount": 7},
+      "scale": {"type": "linear", "domain": [0, 1]}
+    },
+    "y": {
+      "field": "Total_Ecological_Footprint",
+      "type": "quantitative",
+      "title": "Total Ecological Footprint (global hectares)",
+      "axis": {"tickCount": 6},
+      "scale": {"type": "linear", "domain": [1, 20]}
+    }
+  },
+  "layer": [
+    {
+      "selection": {
+        "continent_highlight": {
+          "type": "multi",
+          "fields": ["Region"],
+          "bind": "legend"
+        }
+      },
+      "mark": "circle",
+      "encoding": {
+        "size": {
+          "field": "Population",
+          "type": "quantitative",
+          "scale": {
+            "type": "threshold",
+            "domain": [1, 10, 50, 100, 500],
+            "range": [10, 50, 150, 200, 300, 400]
+          },
+          "legend": {"format": ".1s"}
+        },
+        "color": {
+          "field": "Region",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Middle East/Central Asia",
+              "Northern/Eastern Europe",
+              "European Union",
+              "Africa",
+              "Asia-Pacific",
+              "Latin America",
+              "North America"
+            ],
+            "range": [
+              "#e41a1c",
+              "#984ea3",
+              "#ff7f00",
+              "#7fc928",
+              "#4a1486",
+              "#a65628",
+              "#005a32"
+            ]
+          }
+        },
+        "opacity": {
+          "condition": {"selection": "continent_highlight", "value": 0.6},
+          "value": 0.2
+        },
+        "tooltip": [
+          {"field": "Country", "type": "nominal"},
+          {"field": "Population", "type": "quantitative", "format": ","},
+          {"field": "HDI", "type": "quantitative", "format": ","},
+          {
+            "field": "Total_Ecological_Footprint",
+            "type": "quantitative",
+            "title": "Total Ecological Footprint",
+            "format": ","
+          },
+          {}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "dx": -12,
+        "fontSize": 11.5,
+        "fontStyle": "italic"
+      },
+      "encoding": {
+        "text": {"field": "Country", "type": "nominal"},
+        "color": {"value": "black"},
+        "opacity": {
+          "condition": {
+            "test": "datum['Country'] == 'China' || datum['Country'] == 'Singapore' || datum['Country'] == 'Australia' || datum['Country'] == 'Switzerland' || datum['Country'] == 'Indonesia' || datum['Country'] == 'Egypt' ||  datum['Country'] == 'United States'",
+            "value": 1
+          },
+          "value": 0
+        },
+        "tooltip": [
+          {"field": "Country", "type": "nominal"},
+          {"field": "Region", "type": "nominal"},
+          {
+            "field": "Population",
+            "type": "quantitative",
+            "title": "Population (millions)",
+            "format": ","
+          },
+          {
+            "field": "HDI",
+            "type": "quantitative",
+            "title": "Human Development Index",
+            "format": ","
+          },
+          {
+            "field": "Total_Ecological_Footprint",
+            "type": "quantitative",
+            "title": "Total Ecological Footprint (global hectares)",
+            "format": ","
+          },
+          {}
+        ]
+      }
+    }
+  ],
+  "config": {}
+}
