@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title> Week 10 Homework </title>
+  <title> Assignment 2 </title>
   <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
@@ -25,8 +25,8 @@
        background-color: lightgray;
      }
      .page{
-       width: 850px;    
-       background-color: white;   
+       width: 1050px;    
+       background-color: "#deebf7";   
        margin: auto;
        padding: 50px;
        padding-top: 35px;
@@ -59,8 +59,8 @@
    <!-- pure grid group -->
     <div class="pure-g">
       <div class="pure-u-1-1">
-        <h1>Week 10 Homework</h1>
-        <p> Lab: Wednesday Lab 10am-12pm & Tutor: Dr Grace Chai-Wen Ting </p>
+        <h1>2016 Global Ecological Footprint</h1>
+        <p> </p>
       </div>
     </div>
   <!-- end pure grid group -->
@@ -105,8 +105,9 @@
   </div> <!-- end page -->
    
 <script type="text/javascript">
-  var specVis1 = "js/HDIvsTotalEcoFootprint_onlyList.json";
-  var specVis2= "js/Number_of_Earths_Required_Norm.json";
+  var specVis1 = "js/Total Eco Footprint by GDP (colorblind).json";
+  var specVis2= "js/Biocapacity deficit or reserve per Million(background).json";
+  var specVis3= "js/Diff from Avg. Biocapacity (background).json";
 
   vegaEmbed('#vis1', specVis1, {"actions": false}).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
