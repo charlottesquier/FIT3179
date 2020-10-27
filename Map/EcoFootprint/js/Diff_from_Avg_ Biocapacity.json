@@ -5,12 +5,12 @@
   "background": "#deebf7",
   "config": {
     "font": "monospace",
-    "title": {"font": "monospace", "fontSize": 15},
+    "title": {"font": "monospace", "fontSize": 20},
     "axis": {
       "labelFont": "monospace",
       "labelFontSize": 12,
       "titleFont": "monospace",
-      "titleFontSize": 20,
+      "titleFontSize": 15,
       "titlePadding": 20
     }
   },
