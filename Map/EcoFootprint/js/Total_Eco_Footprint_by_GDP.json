@@ -64,7 +64,7 @@
     "y": {
       "field": "Total_Ecological_Footprint",
       "type": "quantitative",
-      "title": "Total Ecological Footprint (global hectares)",
+      "title": "Total Eco. Footprint (global HA)",
       "axis": {"tickCount": 6},
       "scale": {"type": "linear", "domain": [1, 16]}
     }
