@@ -120,7 +120,7 @@
    
 <script type="text/javascript">
   var specVis1 = "js/Total_Eco_Footprint_by_GDP.json";
-  var specVis2= "js/Biocapacity deficit or reserve per Million(background).json";
+  var specVis2= "js/Biocapacity_deficit_or_reserve_per_Million.json";
   var specVis3= "js/Diff_from_Avg_ Biocapacity.json";
 
   vegaEmbed('#vis1', specVis1, {"actions": false}).then(function(result) {
@@ -131,7 +131,7 @@
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
 
-  vegaEmbed('#vis3', specVis1, {"actions": false}).then(function(result) {
+  vegaEmbed('#vis3', specVis3, {"actions": false}).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
 
