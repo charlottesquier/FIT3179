@@ -56,8 +56,7 @@
           "#74add1",
           "#4575b4"
         ]
-      },
-      "legend": {"format": ""}
+      }
     },
     "tooltip": [
       {"field": "properties.NAME", "type": "nominal", "title": "Country"},
