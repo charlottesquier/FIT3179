@@ -1,0 +1,179 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 800,
+  "height": 400,
+  "background": "#deebf7",
+  "title": "Total Ecological Footprint by GDP per Capita in 2016",
+  "data": {
+    "url": "https://raw.githubusercontent.com/charlottesquier/FIT3179/main/Map/EcoFootprint/data/countries.csv"
+  },
+  "params": [
+    {
+      "name": "Population_Above",
+      "value": 0,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 1400,
+        "step": 10,
+        "name": "Minimum Population (mil): "
+      }
+    },
+    {
+      "name": "Continent_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "Middle East/Central Asia",
+          "Europe",
+          "Africa",
+          "Asia-Pacific",
+          "Latin America",
+          "North America"
+        ],
+        "labels": [
+          "Show All",
+          "Middle East/Central Asia",
+          "Europe",
+          "Africa",
+          "Asia-Pacific",
+          "Latin America",
+          "North America"
+        ],
+        "name": "Region Selection: "
+      }
+    }
+  ],
+  "transform": [
+    {"filter": "datum.GDP_per_Capita > 0"},
+    {"filter": "datum.Population > Population_Above"},
+    {
+      "filter": "Continent_selection == null || datum.Region == Continent_selection"
+    },
+    {}
+  ],
+  "encoding": {
+    "x": {
+      "field": "GDP_per_Capita",
+      "type": "quantitative",
+      "title": "GDP per Capita",
+      "axis": {"tickCount": 7},
+      "scale": {"type": "linear", "domain": [0, 115000]}
+    },
+    "y": {
+      "field": "Total_Ecological_Footprint",
+      "type": "quantitative",
+      "title": "Total Ecological Footprint (global hectares)",
+      "axis": {"tickCount": 6},
+      "scale": {"type": "linear", "domain": [1, 16]}
+    }
+  },
+  "layer": [
+    {
+      "selection": {
+        "continent_highlight": {
+          "type": "multi",
+          "fields": ["Region"],
+          "bind": "legend"
+        }
+      },
+      "mark": "circle",
+      "encoding": {
+        "size": {
+          "field": "Population",
+          "type": "quantitative",
+          "scale": {
+            "type": "threshold",
+            "domain": [10, 50, 100, 500, 1000],
+            "range": [20, 50, 150, 500, 1000, 1500]
+          },
+          "legend": {"format": ""}
+        },
+        "color": {
+          "field": "Region",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Middle East/Central Asia",
+              "Europe",
+              "Africa",
+              "Asia-Pacific",
+              "Latin America",
+              "North America"
+            ],
+            "range": [
+              "#cc79a7",
+              "#009e73",
+              "#8da0cb",
+              "#d55e00",
+              "#0072b2",
+              "#f0e442"
+            ]
+          }
+        },
+        "opacity": {
+          "condition": {"selection": "continent_highlight", "value": 0.6},
+          "value": 0.2
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "dx": -12,
+        "fontSize": 13.5,
+        "font": "monospace",
+        "fontStyle": "italic"
+      },
+      "encoding": {
+        "text": {"field": "Country", "type": "nominal"},
+        "color": {"value": "black"},
+        "opacity": {
+          "condition": {
+            "test": "datum['Country'] == 'Singapore' || datum['Country'] == 'Australia' || datum['Country'] == 'Switzerland' || datum['Country'] == 'Malaysia' || datum['Country'] == 'Luxembourg' || datum['Country'] == 'India'",
+            "value": 1
+          },
+          "value": 0
+        },
+        "tooltip": [
+          {"field": "Country", "type": "nominal"},
+          {"field": "Region", "type": "nominal"},
+          {
+            "field": "Population",
+            "type": "quantitative",
+            "title": "Population (millions)",
+            "format": ","
+          },
+          {
+            "field": "GDP_per_Capita",
+            "type": "quantitative",
+            "title": "GDP per Capita (USD)",
+            "format": ","
+          },
+          {
+            "field": "Total_Ecological_Footprint",
+            "type": "quantitative",
+            "title": "Total Ecological Footprint (global hectares)",
+            "format": ","
+          },
+          {}
+        ]
+      }
+    }
+  ],
+  "config": {
+    "background": "#deebf7",
+    "font": "monospace",
+    "title": {"font": "monospace", "fontSize": 30},
+    "axis": {
+      "labelFont": "monospace",
+      "labelFontSize": 12,
+      "titleFont": "monospace",
+      "titleFontSize": 15,
+      "titlePadding": 30
+    }
+  }
+}
