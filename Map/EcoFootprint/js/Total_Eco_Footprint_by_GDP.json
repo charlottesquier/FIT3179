@@ -156,7 +156,7 @@
           {
             "field": "Total_Ecological_Footprint",
             "type": "quantitative",
-            "title": "Total Ecological Footprint (global hectares)",
+            "title": "Total Ecological Footprint (Global HA)",
             "format": ","
           },
           {}
