@@ -167,7 +167,7 @@
   "config": {
     "background": "#deebf7",
     "font": "monospace",
-    "title": {"font": "monospace", "fontSize": 30},
+    "title": {"font": "monospace", "fontSize": 15},
     "axis": {
       "labelFont": "monospace",
       "labelFontSize": 12,
