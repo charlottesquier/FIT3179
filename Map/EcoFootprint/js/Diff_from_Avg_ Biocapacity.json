@@ -1,33 +1,27 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "width": 150,
+  "width": 500,
   "height": 150,
-  "background": "#deebf7",
+  "background": "#f7fcfd",
+   "data": {
+    "values": [
+      {"Region": "Middle East/Central Asia", "Biocapacity_Deficit_or_Reserve": -0.143030303, "line": 0},
+      {"Region": "Europe", "Biocapacity_Deficit_or_Reserve": -1.528157895,  "line": 0},
+      {"Region": "Africa", "Biocapacity_Deficit_or_Reserve": 0.414705882,  "line": 0},
+      {"Region": "Asia-Pacific", "Biocapacity_Deficit_or_Reserve": 0.596569767,  "line": 0},
+      {"Region": "Latin America", "Biocapacity_Deficit_or_Reserve": 6.080512821,  "line": 0},
+      {"Region": "North America", "Biocapacity_Deficit_or_Reserve": -0.756666667,  "line": 0}]
+  },
     "config": {
-      "font": "monospace",
     "title": {
-      "font": "monospace",
       "fontSize": 15},
     "axis": {
-      "labelFont": "monospace",
-      "labelFontSize":12,
-      "titleFont": "monospace",
-      "titleFontSize": 20,
-      "titlePadding": 20}},
-  "title": "Total Biocapacity Deficit or Reserve by Region in 2016", 
-  "data": {"url": "https://raw.githubusercontent.com/charlottesquier/FIT3179/main/Map/EcoFootprint/data/countries.csv"},
-  "transform": [
-    {"calculate": "datum.Biocapacity_Deficit_or_Reserve/datum.Population", "as": "Biocapacity"},
-    {"filter": "datum['Biocapacity_Deficit_or_Reserve'] != null"},
-    {
-      "joinaggregate": [{
-        "op": "mean",
-        "field": "Biocapacity_Deficit_or_Reserve",
-        "as": "AverageBiocapacity"
-      }]
-    },
-    {"filter": "datum['Biocapacity_Deficit_or_Reserve']"}
-  ],
+      "labelFont": "",
+      "labelFontSize":10,
+      "titleFont": "",
+      "titleFontSize": 12}},
+  "title": "", 
+
   "layer": [
     {
       "mark": "bar",
@@ -46,12 +40,12 @@
               "North America"
             ],
             "range": [
-              "#cc79a7",
+              "#cb181d",
               "#009e73",
-              "#8da0cb",
+              "#542788",
               "#d55e00",
               "#0072b2",
-              "#f0e442"
+              "#525252"
             ]
           }
         },
@@ -64,21 +58,30 @@
           "type": "quantitative",
           "title": "Biocapacity Deficit or Reserve",
           "axis": {"tickCount": 5},
-          "scale": {"type": "linear", "domain": [-15, 110]}
+          "scale": {"type": "linear", "domain": [-2, 8]}
         },
-        "y": {"field": "Region", "type": "ordinal"}
-        
+        "y": {"field": "Region", "type": "ordinal"},
+         "tooltip": [
+          {"field": "Region", "type": "nominal"},
+          {"field": "Biocapacity_Deficit_or_Reserve", "type": "quantitative", "title": "Average Biocapacity Deficit or Reserve", "format": "0.3"}]
       }
     },
     {
       "mark": {"type": "rule", "color": "red"},
       "encoding": {
-        "x": {
-          "aggregate": "average",
-          "field": "AverageBiocapacity",
+        "x": { "aggregate": "mean",
+          "field": "line",
           "type": "quantitative"
-        }
-      }
+        },
+        "size": {"value": 3}
+      }},
+      {
+    "mark": {"type": "text", "align": "left", "x": 105, "y": 60, "color": "red"},
+    "encoding": {
+      "text": {"value": "Zero"},
+      "detail": {"aggregate": "count"}
+    }
     }
   ]
+  
 }
