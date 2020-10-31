@@ -1,0 +1,48 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "background": "#f7fcfd",
+  "data": {
+    "values": [
+      {"category": "Fish", "value": 0.122616279},
+      {"category": "Grazing", "value": 0.264186047},
+      {"category": "Forest", "value": 0.37377907},
+      {"category": "Carbon", "value": 1.812674419},
+      {"category": "Cropland", "value": 0.580290698}] 
+  },
+  "layer": [{
+     "mark": {"type": "arc", "innerRadius": 20, "stroke": "black"}
+  }, {
+    "mark": {"type": "text",  "radiusOffset": 25, 
+        "baseline": "bottom",
+        "dx": -5,
+        "fontSize": 10},
+    "encoding": {
+      "text": {"field": "category", "type": "nominal"},
+      "color": {"value": "black"}
+    }}],
+    "encoding": {
+       "theta": {"field": "value", "type": "quantitative", "stack": true},
+       "radius": {"field": "value", "scale": {"type": "sqrt", "zero": true, "rangeMin": 20}},
+      "text": {"field": "category", "type": "nominal"},
+      "color": {"field": "category", "type": "nominal", "legend": null, "scale": {
+            "domain": [
+              "Cropland",
+              "Grazing",
+              "Forest",
+              "Carbon",
+              "Fish"
+            ],
+            "range": [
+              "#e6550d",
+              "#fdbe85",
+              "#fd8d3c",
+              "#a63603",
+              "#feedde"
+            ]
+          }},
+     "tooltip": [
+       {"field": "category", "type": "nominal"},
+      {"field": "value", "type": "quantitative", "title": "Footprint (in Hectares)", "format": ".2f"}
+    ]},
+  "view": {"stroke": null}
+}
