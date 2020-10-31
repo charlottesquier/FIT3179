@@ -46,7 +46,7 @@
       {
         "field": "value",
         "type": "quantitative",
-        "title": "Footprint (in Hectares)",
+        "title": "Biocapacity (in Hectares)",
         "format": ".2f"
       }
     ]
