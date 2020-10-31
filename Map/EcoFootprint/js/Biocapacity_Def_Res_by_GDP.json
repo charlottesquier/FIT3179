@@ -1,9 +1,9 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "width": 200,
+  "width": 500,
   "height": 300,
-  "background": "#deebf7",
-  "title": "Total Ecological Footprint by GDP per Capita in 2016",
+  "background": "#f7fcfd",
+  "title": "",
   "data": {
     "url": "https://raw.githubusercontent.com/charlottesquier/FIT3179/main/Map/EcoFootprint/data/countries.csv"
   },
@@ -47,9 +47,9 @@
   ],
   "transform": [
     {"filter": "datum.GDP_per_Capita > 0"},
+    {"filter": "datum.Biocapacity_Deficit_or_Reserve < 10"},
     {"filter": "datum.Population > Population_Above"},
-    {
-      "filter": "Continent_selection == null || datum.Region == Continent_selection"
+    {"filter": "Continent_selection == null || datum.Region == Continent_selection"
     },
     {}
   ],
@@ -58,15 +58,15 @@
       "field": "GDP_per_Capita",
       "type": "quantitative",
       "title": "GDP per Capita (USD)",
-      "axis": {"tickCount": 7},
-      "scale": {"type": "linear", "domain": [0, 115000]}
+      "axis": {"tickCount": 4},
+      "scale": {"type": "log", "domain": [100,1000000]}
     },
     "y": {
-      "field": "Total_Ecological_Footprint",
+      "field": "Biocapacity_Deficit_or_Reserve",
       "type": "quantitative",
-      "title": "Total Eco. Footprint (global HA)",
+      "title": "Biocapacity Deficit or Reserve",
       "axis": {"tickCount": 6},
-      "scale": {"type": "linear", "domain": [1, 16]}
+      "scale": {"type": "linear",  "domain": [-15,10]}
     }
   },
   "layer": [
@@ -113,7 +113,7 @@
           }
         },
         "opacity": {
-          "condition": {"selection": "continent_highlight", "value": 0.6},
+          "condition": {"selection": "continent_highlight", "value": 0.8},
           "value": 0.2
         }
       }
@@ -121,19 +121,19 @@
     {
       "mark": {
         "type": "text",
-        "align": "right",
+        "align": "left",
         "baseline": "middle",
-        "dx": -12,
-        "fontSize": 13.5,
-        "font": "monospace",
-        "fontStyle": "italic"
+        "dx": 12,
+        "fontSize": 11,
+        "font": "",
+        "fontStyle": ""
       },
       "encoding": {
         "text": {"field": "Country", "type": "nominal"},
         "color": {"value": "black"},
         "opacity": {
           "condition": {
-            "test": "datum['Country'] == 'Singapore' || datum['Country'] == 'Australia' || datum['Country'] == 'Switzerland' || datum['Country'] == 'Malaysia' || datum['Country'] == 'Luxembourg' || datum['Country'] == 'India'",
+            "test": "datum['Country'] == 'China' || datum['Country'] == 'Australia' || datum['Country'] == 'Luxembourg' || datum['Country'] == 'Malaysia' || datum['Country'] == 'Mongolia' || datum['Country'] == 'Russian Federation'",
             "value": 1
           },
           "value": 0
@@ -154,9 +154,9 @@
             "format": ","
           },
           {
-            "field": "Total_Ecological_Footprint",
+            "field": "Biocapacity_Deficit_or_Reserve",
             "type": "quantitative",
-            "title": "Total Eco. Footprint (Global HA)",
+            "title": "Biocapacity_Deficit_or_Reserve",
             "format": ","
           },
           {}
@@ -166,12 +166,9 @@
   ],
   "config": {
     "background": "#deebf7",
-    "font": "monospace",
-    "title": {"font": "monospace", "fontSize": 20},
+    "font":"",
     "axis": {
-      "labelFont": "monospace",
       "labelFontSize": 12,
-      "titleFont": "monospace",
       "titleFontSize": 15,
       "titlePadding": 30
     }
