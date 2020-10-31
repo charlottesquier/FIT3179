@@ -1,6 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "background": "#f7fcfd",
+  "width": 200,
+  "height": 200,
   "data": {
     "values": [
       {"category": "Cropland", "value": 0.534186047},
