@@ -94,6 +94,18 @@
    
    <!-- pure grid group -->
     <div class="pure-g">
+        <div class="pure-u-1-2">
+          <div id="vis4" class="vis-container"></div>
+        </div>
+      <div class="pure-u-1-2">
+          <div id="vis5" class="vis-container"></div>
+        </div>
+    </div>
+    <!-- end pure grid group -->
+   
+   
+   <!-- pure grid group -->
+    <div class="pure-g">
       <div class="pure-u-1-5">
         <h1></h1>
         <p> </p>
@@ -149,6 +161,8 @@
   var specVis1= "js/Biocapacity_deficit_or_reserve_per_Million.json";
   var specVis2= "js/Biocapacity_Def_Res_by_GDP.json";
   var specVis3= "js/Diff_from_Avg_ Biocapacity.json";
+  var specVis4= "js/radialchart_biocapacity.json";
+  var specVis5= "js/radialchart_footprint.json";
 
   vegaEmbed('#vis1', specVis1, {"actions": false}).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
@@ -162,7 +176,11 @@
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
 
-  vegaEmbed('#vis4', specVis2, {"actions": false}).then(function(result) {
+  vegaEmbed('#vis4', specVis4, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+  
+  vegaEmbed('#vis5', specVis5, {"actions": false}).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
 </script>
