@@ -1,0 +1,70 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 500,
+  "height": 300,
+  "background": "#f7fcfd",
+  "title": "",
+  "data": {
+    "url": "https://raw.githubusercontent.com/charlottesquier/FIT3179/main/Map/EcoFootprint/data/countries.csv"
+  },
+  "transform": [
+    {
+      "filter": {
+        "and": [
+          {"field": "Earths_Required", "valid": true},
+          {"field": "GDP_per_Capita", "valid": true}
+        ]
+      }
+    }
+  ],
+  "mark": "rect",
+  "encoding": {
+    "x": {
+      "bin": {"maxbins": 20},
+      "field": "Earths_Required",
+      "title": "Earths Required",
+      "type": "quantitative"
+    },
+    "y": {
+      "bin": {"maxbins": 20},
+      "field": "GDP_per_Capita",
+      "title": "GDP per Capita (USD)",
+      "type": "quantitative"
+    },
+    "tooltip": [
+      {"field": "Country", "type": "nominal"},
+      {"field": "Region", "type": "nominal"},
+      {
+        "field": "GDP_per_Capita",
+        "type": "quantitative",
+        "title": "GDP per Capita (USD)",
+        "format": ""
+      },
+      {
+        "field": "Earths_Required",
+        "type": "quantitative",
+        "title": "Earths Required",
+        "format": ""
+      },
+      {"field": "Population", "type": "nominal", "title": "Population (mil)"}
+    ],
+    "color": {
+      "field": "Population",
+      "title": "Population (mil)",
+      "type": "quantitative",
+      "scale": {
+        "type": "threshold",
+        "domain": [2, 5, 9, 15, 20],
+        "range": [
+          "#feedde",
+          "#fdd0a2",
+          "#fdae6b",
+          "#fd8d3c",
+          "#e6550d",
+          "#a63603"
+        ]
+      }
+    }
+  },
+  "config": {"view": {"stroke": "transparent"}}
+}
