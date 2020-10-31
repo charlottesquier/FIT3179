@@ -103,17 +103,17 @@
               "North America"
             ],
             "range": [
-              "#cc79a7",
+              "#cb181d",
               "#009e73",
-              "#8da0cb",
+              "#542788",
               "#d55e00",
               "#0072b2",
-              "#f0e442"
+              "#525252"
             ]
           }
         },
         "opacity": {
-          "condition": {"selection": "continent_highlight", "value": 0.8},
+          "condition": {"selection": "continent_highlight", "value": 0.6},
           "value": 0.2
         }
       }
@@ -156,7 +156,7 @@
           {
             "field": "Biocapacity_Deficit_or_Reserve",
             "type": "quantitative",
-            "title": "Biocapacity_Deficit_or_Reserve",
+            "title": "Biocapacity (deficit or reserve)",
             "format": ","
           },
           {}
