@@ -1,18 +1,20 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "title": "Biocapacity deficit or reserve per Million people in 2016",
-  "width": 1000,
+  "title": "",
+  "width": 800,
   "height": 400,
-  "background": "#deebf7",
   "config": {
-    "font": "monospace",
     "title": {"font": "monospace", "fontSize": 15},
     "axis": {
       "labelFont": "monospace",
       "labelFontSize": 20,
       "titleFont": "bold",
-      "titleFontSize": 30,
-      "titlePadding": 20
+      "titleFontSize": 30
+    },
+    "legend": { 
+      "orient": "bottom-left",
+      "gradientDirection": "horizontal",
+      "gradientLength": 150
     },
     "style": {"cell": {"stroke": "transparent"}}
   },
@@ -37,26 +39,30 @@
     }
   ],
   "projection": {"type": "equalEarth"},
-  "mark": {"type": "geoshape"},
+   "selection": {
+  "highlight": {"type": "single", "empty": "none", "on": "mouseover"},
+    "select": {"type": "multi"}
+  },
+  "mark": {"type": "geoshape", "stroke": "darkolivegreen"},
   "encoding": {
     "color": {
       "field": "Biocapacity",
+      "title": "Biocapacity (- to +)",
       "type": "quantitative",
       "scale": {
         "type": "threshold",
-        "domain": [-1, -0.05, 0, 0.0001, 0.01, 0.025, 0.5, 1],
+        "domain": [-1, -0.5, 0, 0.5, 1],
         "range": [
           "#d73027",
           "#f46d43",
           "#fdae61",
-          "#fee090",
-          "#ffffbf",
-          "#e0f3f8",
+
           "#abd9e9",
           "#74add1",
           "#4575b4"
         ]
-      }
+      }, 
+      "condition": [{"selection": "highlight", "value": "#f0f0f0"}]
     },
     "tooltip": [
       {"field": "properties.NAME", "type": "nominal", "title": "Country"},
