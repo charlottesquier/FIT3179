@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "width": 430,
   "height": 300,
-  "background": "#f7fcfd",
+  "background": "#fff7ec",
   "title": "",
   "data": {
     "url": "https://raw.githubusercontent.com/charlottesquier/FIT3179/main/Map/EcoFootprint/data/countries.csv"
