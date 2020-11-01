@@ -43,7 +43,7 @@
             ]
           }},
      "tooltip": [
-       {"field": "category", "type": "nominal"},
+       {"field": "category", "type": "nominal", "title": "Footprint Category"},
       {"field": "value", "type": "quantitative", "title": "Footprint (in Hectares)", "format": ".2f"}
     ]},
   "view": {"stroke": null}
