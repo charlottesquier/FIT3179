@@ -81,7 +81,7 @@
       {
     "mark": {"type": "text", "align": "left", "x": 50, "y": 120, "color": "red"},
     "encoding": {
-      "text": {"value": "Zero"},
+      "text": {"value": "Zero line"},
       "detail": {"aggregate": "count"}
     }
     }
