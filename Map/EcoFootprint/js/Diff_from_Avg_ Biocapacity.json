@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "width": 500,
+  "width": 200,
   "height": 150,
   "background": "#f7fcfd",
    "data": {
@@ -18,6 +18,7 @@
     "axis": {
       "labelFont": "",
       "labelFontSize":10,
+       "labelAngle": -40,
       "titleFont": "",
       "titleFontSize": 12}},
   "title": "", 
