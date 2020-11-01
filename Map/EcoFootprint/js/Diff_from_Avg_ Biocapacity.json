@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "width": 300,
+  "width": 200,
   "height": 300,
   "background": "#fff7ec",
    "data": {
@@ -79,7 +79,7 @@
         "size": {"value": 3}
       }},
       {
-    "mark": {"type": "text", "align": "left", "x": 70, "y": 120, "color": "red"},
+    "mark": {"type": "text", "align": "left", "x": 50, "y": 120, "color": "red"},
     "encoding": {
       "text": {"value": "Zero"},
       "detail": {"aggregate": "count"}
