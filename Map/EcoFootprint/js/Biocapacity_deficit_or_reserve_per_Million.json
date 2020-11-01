@@ -4,7 +4,7 @@
   "width": 1070,
   "height": 400,
   "config": {
-    "background": "#f7fcfd",
+    "background": "#fff7ec",
     "title": {"font": "monospace", "fontSize": 15},
     "axis": {
       "labelFont": "monospace",
