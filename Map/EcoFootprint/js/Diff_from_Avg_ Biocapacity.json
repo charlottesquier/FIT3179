@@ -61,7 +61,7 @@
           "type": "quantitative",
           "title": "Average Biocapacity Deficit or Reserve",
           "axis": {"tickCount": 5},
-          "scale": {"type": "linear", "domain": [-2, 8]}
+          "scale": {"type": "linear", "domain": [-2, 7]}
         },
         "y": {"field": "Region", "type": "ordinal", "axis": null},
          "tooltip": [
@@ -79,7 +79,7 @@
         "size": {"value": 3}
       }},
       {
-    "mark": {"type": "text", "align": "left", "x": 65, "y": 120, "color": "red"},
+    "mark": {"type": "text", "align": "left", "x": 70, "y": 120, "color": "red"},
     "encoding": {
       "text": {"value": "Zero"},
       "detail": {"aggregate": "count"}
