@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "width": 250,
+  "width": 300,
   "height": 300,
-  "background": "#f7fcfd",
+  "background": "#fff7ec",
    "data": {
     "values": [
       {"Region": "Middle East/Central Asia", "Biocapacity_Deficit_or_Reserve": -0.143030303, "line": 0},
@@ -16,7 +16,6 @@
     "title": {
       "fontSize": 15},
     "axis": {
-      "labels":false,
       "labelFont": "",
       "labelFontSize":10,
        "labelAngle": -40,
@@ -64,7 +63,7 @@
           "axis": {"tickCount": 5},
           "scale": {"type": "linear", "domain": [-2, 8]}
         },
-        "y": {"field": "Region", "type": "ordinal"},
+        "y": {"field": "Region", "type": "ordinal", "axis": null},
          "tooltip": [
           {"field": "Region", "type": "nominal"},
           {"field": "Biocapacity_Deficit_or_Reserve", "type": "quantitative", "title": "Average Biocapacity Deficit or Reserve", "format": "0.3"}]
