@@ -59,8 +59,8 @@
         "type": "text",
         "align": "left",
         "baseline": "middle",
-        "dx": 160,
-        "dy":-135,
+        "dx": 115,
+        "dy":-90,
         "fontSize": 11,
         "font": "",
         "fontStyle": ""
