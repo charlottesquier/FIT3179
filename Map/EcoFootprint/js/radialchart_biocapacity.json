@@ -2,8 +2,8 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "background": "#fff7ec",
   "title": "Biocapacity",
-  "width": 200,
-  "height": 200,
+  "width": 300,
+  "height": 300,
   "data": {
     "values": [
       {"category": "Cropland", "value": 0.534186047},
