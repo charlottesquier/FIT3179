@@ -44,7 +44,7 @@
       }
     },
     "tooltip": [
-      {"field": "category", "type": "nominal"},
+      {"field": "category", "type": "nominal", "title": "Biocapacity Category"},
       {
         "field": "value",
         "type": "quantitative",
