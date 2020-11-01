@@ -2,58 +2,50 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "background": "#fff7ec",
   "title": "Biocapacity",
-  "width": 300,
-  "height": 300,
+  "config": {
+    "title": {"fontSize": 20}},
+  "width": 400,
+  "height": 400,
   "data": {
     "values": [
       {"category": "Cropland", "value": 0.534186047},
       {"category": "Grazing", "value": 0.441453488},
       {"category": "Forest", "value": 2.430872093},
       {"category": "Urban", "value": 0.596569767}
-    ]
+      ]
   },
-  "layer": [
-    {"mark": {"type": "arc", "innerRadius": 20, "stroke": "black"}},
-    {
-      "mark": {
-        "type": "text",
-        "radiusOffset": 20,
+  "layer": [{
+     "mark": {"type": "arc", "innerRadius": 20, "stroke": "black"}
+  }, {
+    "mark": {"type": "text",  "radiusOffset": 30, 
         "baseline": "bottom",
         "dx": -5,
-        "fontSize": 10
-      },
-      "encoding": {
-        "text": {"field": "category", "type": "nominal"},
-        "color": {"value": "black"}
-      }
-    }
-  ],
-  "encoding": {
-    "theta": {"field": "value", "type": "quantitative", "stack": true},
-    "radius": {
-      "field": "value",
-      "scale": {"type": "sqrt", "zero": true, "rangeMin": 20}
-    },
-    "text": {"field": "category", "type": "nominal"},
-    "color": {
-      "field": "category",
-      "type": "nominal",
-      "legend": null,
-      "scale": {
-        "domain": ["Cropland", "Grazing", "Forest", "Urban"],
-        "range": ["#bdd7e7", "#eff3ff", "#2171b5", "#6baed6"]
-      }
-    },
-    "tooltip": [
-      {"field": "category", "type": "nominal", "title": "Biocapacity Category"},
-      {
-        "field": "value",
-        "type": "quantitative",
-        "title": "Biocapacity (in Hectares)",
-        "format": ".2f"
-      }
-    ]
-  },
-  "view": {"stroke": null},
-  "config": {}
+        "fontSize": 15},
+    "encoding": {
+      "text": {"field": "category", "type": "nominal"},
+      "color": {"value": "black"}
+    }}],
+    "encoding": {
+       "theta": {"field": "value", "type": "quantitative", "stack": true},
+       "radius": {"field": "value", "scale": {"type": "sqrt", "zero": true, "rangeMin": 20}},
+      "text": {"field": "category", "type": "nominal"},
+      "color": {"field": "category", "type": "nominal", "legend": null, "scale": {
+            "domain": [
+              "Cropland",
+              "Grazing",
+              "Forest",
+              "Urban"
+            ],
+            "range": [
+              "#bdd7e7",
+              "#eff3ff",
+              "#2171b5",
+              "#6baed6"
+            ]
+          }},
+     "tooltip": [
+       {"field": "category", "type": "nominal"},
+      {"field": "value", "type": "quantitative", "title": "Footprint (in Hectares)", "format": ".2f"}
+    ]},
+  "view": {"stroke": null}
 }
