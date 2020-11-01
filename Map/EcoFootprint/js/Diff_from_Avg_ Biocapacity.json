@@ -61,7 +61,7 @@
           "axis": {"tickCount": 5},
           "scale": {"type": "linear", "domain": [-2, 8]}
         },
-        "y": {"field": "Region", "type": "ordinal"},
+        "y": {"field": "Region", "type": "ordinal", "title":null, "axis": null},
          "tooltip": [
           {"field": "Region", "type": "nominal"},
           {"field": "Biocapacity_Deficit_or_Reserve", "type": "quantitative", "title": "Average Biocapacity Deficit or Reserve", "format": "0.3"}]
@@ -77,7 +77,7 @@
         "size": {"value": 3}
       }},
       {
-    "mark": {"type": "text", "align": "left", "x": 105, "y": 60, "color": "red"},
+    "mark": {"type": "text", "align": "left", "x": 43, "y": 60, "color": "red"},
     "encoding": {
       "text": {"value": "Zero"},
       "detail": {"aggregate": "count"}
