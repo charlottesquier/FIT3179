@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "width": 400,
+  "width": 430,
   "height": 300,
   "background": "#f7fcfd",
   "title": "",
@@ -65,7 +65,7 @@
       "field": "Biocapacity_Deficit_or_Reserve",
       "type": "quantitative",
       "title": "Biocapacity Deficit or Reserve",
-      "axis": {"tickCount": 6},
+      "axis": {"grid": false, "domain": true},
       "scale": {"type": "linear",  "domain": [-15,10]}
     }
   },
@@ -76,10 +76,16 @@
           "type": "multi",
           "fields": ["Region"],
           "bind": "legend"
-        }
-      },
+        },
+         "hover":{"type": "single",
+        "on":"mouseover","empty": "none",
+          "fields": ["Country"]
+          
+      }, "grid": {"type": "interval", "bind": "scales"}},
       "mark": "circle",
       "encoding": {
+        "stroke":{"condition": {"selection": "hover", "value": "black"},
+          "value": null},
         "size": {
           "field": "Population",
           "type": "quantitative",
@@ -90,6 +96,7 @@
           },
           "legend": {"format": ""}
         },
+        
         "color": {
           "field": "Region",
           "type": "nominal",
@@ -133,7 +140,7 @@
         "color": {"value": "black"},
         "opacity": {
           "condition": {
-            "test": "datum['Country'] == 'China' || datum['Country'] == 'Australia' || datum['Country'] == 'Luxembourg' || datum['Country'] == 'Malaysia' || datum['Country'] == 'Mongolia' || datum['Country'] == 'Russian Federation'",
+            "test":"datum['Country'] == 'Australia' || datum['Country'] == 'Luxembourg' || datum['Country'] == 'Malaysia' || datum['Country'] == 'Mongolia' || datum['Country'] == 'Russian Federation'",
             "value": 1
           },
           "value": 0
