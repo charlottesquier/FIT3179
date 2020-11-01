@@ -79,7 +79,7 @@
         "size": {"value": 3}
       }},
       {
-    "mark": {"type": "text", "align": "left", "x": 53, "y": 120, "color": "red"},
+    "mark": {"type": "text", "align": "left", "x": 65, "y": 120, "color": "red"},
     "encoding": {
       "text": {"value": "Zero"},
       "detail": {"aggregate": "count"}
