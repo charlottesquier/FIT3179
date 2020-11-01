@@ -16,6 +16,7 @@
     "title": {
       "fontSize": 15},
     "axis": {
+      "labels":false,
       "labelFont": "",
       "labelFontSize":10,
        "labelAngle": -40,
@@ -59,11 +60,11 @@
         "x": {
           "field": "Biocapacity_Deficit_or_Reserve", 
           "type": "quantitative",
-          "title": "Average Biocapacity (Deficit or Reserve)",
+          "title": "Biocapacity Deficit or Reserve",
           "axis": {"tickCount": 5},
           "scale": {"type": "linear", "domain": [-2, 8]}
         },
-        "y": {"field": "Region", "type": "ordinal", "title":null},
+        "y": {"field": "Region", "type": "ordinal"},
          "tooltip": [
           {"field": "Region", "type": "nominal"},
           {"field": "Biocapacity_Deficit_or_Reserve", "type": "quantitative", "title": "Average Biocapacity Deficit or Reserve", "format": "0.3"}]
