@@ -7,20 +7,18 @@
   "data": {
     "url": "https://raw.githubusercontent.com/charlottesquier/FIT3179/main/Map/EcoFootprint/data/countries.csv"
   },
-  "transform": [
+  "transform": [{
+    "filter": {"and": [
+      {"field": "Earths_Required", "valid": true},
+      {"field": "GDP_per_Capita", "valid": true}
+    ]}
+  }],
+  "layer": [
     {
-      "filter": {
-        "and": [
-          {"field": "Earths_Required", "valid": true},
-          {"field": "GDP_per_Capita", "valid": true}
-        ]
-      }
-    }
-  ],
   "mark": "rect",
   "encoding": {
     "x": {
-      "bin": {"maxbins": 20},
+      "bin": {"maxbins":20},
       "field": "Earths_Required",
       "title": "Earths Required",
       "type": "quantitative"
@@ -32,39 +30,56 @@
       "type": "quantitative"
     },
     "tooltip": [
-      {"field": "Country", "type": "nominal"},
-      {"field": "Region", "type": "nominal"},
-      {
-        "field": "GDP_per_Capita",
-        "type": "quantitative",
-        "title": "GDP per Capita (USD)",
-        "format": ""
-      },
-      {
-        "field": "Earths_Required",
-        "type": "quantitative",
-        "title": "Earths Required",
-        "format": ""
-      },
-      {"field": "Population", "type": "nominal", "title": "Population (mil)"}
-    ],
+          {"field": "Country", "type": "nominal"},
+           {"field": "Region", "type": "nominal"},
+          {"field": "GDP_per_Capita", "type": "quantitative", "title": "GDP per Capita (USD)", "format": ""},
+          {"field": "Earths_Required", "type": "quantitative", "title": "Earths Required", "format": ""}, 
+          {"field": "Population", "type": "nominal", "title":"Population (mil)"}],
     "color": {
       "field": "Population",
-      "title": "Population (mil)",
+      "title": "Population (mil)", 
       "type": "quantitative",
-      "scale": {
+       "scale": {
         "type": "threshold",
         "domain": [2, 5, 9, 15, 20],
         "range": [
-          "#feedde",
+          "#feedde", 
           "#fdd0a2",
           "#fdae6b",
           "#fd8d3c",
-          "#e6550d",
+          "#e6550d", 
           "#a63603"
+          
         ]
-      }
+      } 
     }
-  },
-  "config": {"view": {"stroke": "transparent"}}
+  }},
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 160,
+        "dy":-135,
+        "fontSize": 11,
+        "font": "",
+        "fontStyle": ""
+      },
+      "encoding": {
+        "text": {"field": "Country", "type": "nominal"},
+        "color": {"value": "black"},
+        "opacity": {
+          "condition": {
+            "test": "datum['Country'] == 'Luxembourg' ",
+            "value": 1
+          },
+          "value": 0
+        }
+      }
+    }],
+  "config": {
+    "view": {
+      "stroke": "transparent"
+    }
+  }
 }
