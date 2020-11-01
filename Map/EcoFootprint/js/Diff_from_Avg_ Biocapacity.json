@@ -59,7 +59,7 @@
         "x": {
           "field": "Biocapacity_Deficit_or_Reserve", 
           "type": "quantitative",
-          "title": "Biocapacity Deficit or Reserve",
+          "title": "Average Biocapacity (Deficit or Reserve)",
           "axis": {"tickCount": 5},
           "scale": {"type": "linear", "domain": [-2, 8]}
         },
