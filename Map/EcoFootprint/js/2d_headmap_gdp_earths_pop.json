@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "width": 600,
+  "width": 550,
   "height": 300,
   "background": "#fff7ec",
   "title": "",
@@ -66,11 +66,9 @@
         "type": "text",
         "align": "left",
         "baseline": "middle",
-        "dx": 200,
+        "dx": 165,
         "dy":-135,
-        "fontSize": 11,
-        "font": "",
-        "fontStyle": ""
+        "fontSize": 14
       },
       "encoding": {
         "text": {"field": "Country", "type": "nominal"},
