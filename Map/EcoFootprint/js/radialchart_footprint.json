@@ -5,7 +5,7 @@
     "title": {"fontSize": 20}},
    "width": 400,
   "height": 400,
-   "title": "Ecological Footprint",
+   "title": "Ecological Footprint (global hectares)",
   "data": {
     "values": [
       {"category": "Fish", "value": 0.122616279},
