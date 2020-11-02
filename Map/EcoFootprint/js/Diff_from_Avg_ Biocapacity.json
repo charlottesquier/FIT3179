@@ -74,6 +74,8 @@
         "type": "text",
         "align": "left",
         "baseline": "middle",
+        "x": 260,
+        "y": 180,
         "dx": 12,
         "fontSize": 11,
         "font": "",
@@ -85,7 +87,7 @@
         "color": {"value": "black"},
         "opacity": {
           "condition": {
-            "test":"datum['Region'] == 'Europe' || datum['Region'] == 'Luxembourg' || datum['Region'] == 'Malaysia' || datum['Region'] == 'Mongolia' || datum['Region'] == 'Russian Federation'",
+            "test":"datum['Region'] == 'Latin America'",
             "value": 1
           },
           "value": 0
